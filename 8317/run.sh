@@ -23,16 +23,13 @@ print_stage() {
     echo "============================================================"
 }
 
-print_stage "0. 清理 processed_data 特征缓存"
 rm -rf "${PROCESSED_DATA_DIR}"
 
-print_stage "1. 构建 v36 行级特征: 201/202/203 + 901/902 开关=${ENABLE_DENSE_901_902}"
 python3 "${SCRIPT_DIR}/feature.py" \
     --input_dir "${INPUT_DATA_DIR}" \
     --output_dir "${PROCESSED_DATA_DIR}" \
     --enable_dense_901_902 "${ENABLE_DENSE_901_902}"
 
-print_stage "2. 启动 v36 训练: v33 主体 + EMA0.9995 + 两个轻量正则微调"
 export TRAIN_DATA_PATH="${PROCESSED_DATA_DIR}"
 
 python3 -u "${SCRIPT_DIR}/train.py" \
