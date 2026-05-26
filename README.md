@@ -1,6 +1,6 @@
 # 2026TAAC-KDD-CUP  
 
-<p align="center" style="font-size: 2em;">
+<p align="center" style="font-size: 5em;">
   <strong>"The score is finally 0.83170"</strong>
 </p>
 
